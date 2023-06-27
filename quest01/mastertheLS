@@ -1,0 +1,8 @@
+ls -Ap -1tu --ignore=".*" | grep -vE "/(\.|..)$" | paste -sd ","
+
+# The -A option lists all files and directories, excluding the current directory (".") and the parent directory (".."). The -p option appends a "/" to directories to distinguish them.
+# The -1 option ensures that each entry is listed on a separate line.
+# The -t option sorts the entries by access time, with the newest first. The -u option specifically sorts based on access time rather than modification time.
+# The --ignore option excludes hidden files by using a regular expression pattern to match any file or directory starting with a dot.
+# The grep command is used to filter out lines that match the given pattern. Here, we're using the -v option to invert the match and exclude lines that end with "/." or "/..".
+#  The paste command is used to merge multiple lines into a single line, separating them with commas. The -s option tells paste to concatenate the lines, and the -d "," option specifies the delimiter as a comma.
